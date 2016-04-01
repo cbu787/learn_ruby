@@ -20,9 +20,14 @@ def first_word(string)
 end
 
 def titleize(string)
-  sentence = string.split
-  return sentence.capitalize
-  # unless
-  #   string = ""
-  # end
+  all_words = string.split(" ")
+  small_words = ["and", "the", "over"]
+  title = all_words.each do |word|
+    if all_words.index(word) == 0
+      word.capitalize!
+    else
+      word.capitalize! if small_words.include?(word) == false
+    end
+  end
+  title.join(" ")
 end
